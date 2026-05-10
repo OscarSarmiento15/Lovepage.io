@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Karla</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Apple Chancery', cursive, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Contenedor del fondo */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Imagen inicial: Perrito formal */
+            background-image: url('https://uploads.onecompiler.io/44nvq89xr/44nvpyh6j/imagen_2026-05-10_113821821.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: background-image 0.8s ease-in-out;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            padding: 0 15px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-romantic {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: transform 0.2s, background-color 0.2s;
+            min-width: 280px;
+        }
+
+        .btn-romantic:hover {
+            transform: scale(1.05);
+            background-color: #ff3333;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bgContainer" class="background-container"></div>
+
+    <div id="landing" class="overlay">
+        <h1>Hola Karla Estephania Acosta Chavez, no seré programador, pero ten esto...</h1>
+        <button class="btn-romantic" onclick="irAPopups()">Hacer clic aquí</button>
+    </div>
+
+    <div id="pantallaFinal" class="overlay hidden">
+        <h1>Elige una canción:</h1>
+        <div class="btn-container">
+            <button class="btn-romantic" onclick="reproducirCancion('Cold Cold Man', letrasCold, '🥶💙')">1er canción que me mandaste</button>
+            <button class="btn-romantic" onclick="reproducirCancion('Besito en la Frente', letrasBesito, '😘✨')">Cómo me tienes</button>
+            <button class="btn-romantic" onclick="reproducirCancion('Something About Us', letrasAboutUs, '🤖❤️')">Something About Us?</button>
+        </div>
+    </div>
+
+    <script>
+        const letrasCold = [
+            "You're the only one worth seein'",
+            "The only place worth bein'",
+            "The only bed worth sleepin's, the one right next to you",
+            "You're the only one worth seein'",
+            "The only place worth bein'",
+            "The only bed worth sleepin's, the one right next to you"
+        ];
+
+        const letrasBesito = [
+            "Mi amor, tú no entiendes cuánto tú me gustas",
+            "Cuando bajas, me subes al cielo",
+            "Una vida sin ti, yo no quiero",
+            "Pensar en no tenerte me asusta",
+            "Un besito en la frente",
+            "Por todo lo que se vivió",
+            "Y si este momento nunca vuelve",
+            "Sé que no se desperdició"
+        ];
+
+        const letrasAboutUs = [
+            "I might not be the right one",
+            "It might not be the right time",
+            "But there's something about us I've got to do",
+            "Some kind of secret I will share with you",
+            "I need you more than anything in my life",
+            "I want you more than anything in my life",
+            "I'll miss you more than anyone in my life",
+            "I love you more than anyone in my life"
+        ];
+
+        function irAPopups() {
+            const bg = document.getElementById('bgContainer');
+            bg.style.backgroundImage = "url('https://uploads.onecompiler.io/44nvq89xr/44nvpyh6j/imagen_2026-05-10_112416197.png')";
+            
+            document.getElementById('landing').classList.add('hidden');
+            document.getElementById('pantallaFinal').classList.remove('hidden');
+        }
+
+        // Ahora la función recibe el 'emojiFinal' para mostrarlo al terminar
+        function reproducirCancion(titulo, listaLetras, emojiFinal) {
+            for (let i = 0; i < listaLetras.length; i++) {
+                alert(titulo + ":\n\n" + listaLetras[i]);
+            }
+            alert(emojiFinal);
+        }
+    </script>
+
+</body>
+</html>
